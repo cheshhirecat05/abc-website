@@ -1,24 +1,46 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import { Routes, Route } from "react-router-dom";
+
+import Navbar from "./components/Navbar";
+import Hero from "./components/Hero";
+import About from "./components/About";
+import Services from "./components/Services";
+import Projects from "./components/Projects";
+import WhyChoose from "./components/WhyChoose";
+import Team from "./components/Team";
+import Contact from "./components/Contact";
+import Footer from "./components/Footer";
+import ScrollTop from "./components/ScrollTop";
+
+import AdminLogin from "./pages/AdminLogin";
+import AdminDashboard from "./pages/AdminDashboard";
+
+function Home() {
+  return (
+    <>
+      <Hero />
+      <About />
+      <Services />
+      <Projects />
+      <WhyChoose />
+      <Team />
+      <Contact />
+      <Footer />
+      <ScrollTop />
+    </>
+  );
+}
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <Navbar />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/admin" element={<AdminLogin />} />
+        <Route path="/dashboard" element={<AdminDashboard />} />
+      </Routes>
+    </>
   );
 }
 
